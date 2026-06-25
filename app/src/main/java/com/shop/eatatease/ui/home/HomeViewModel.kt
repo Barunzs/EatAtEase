@@ -56,11 +56,6 @@ class HomeViewModel : ViewModel() {
                     val chipNames = mutableListOf("All")
                     for (category in categoryDoc.categories) {
                         chipNames.add(category.name)
-                        when (category.name) {
-                            "Groceries" -> _texts.value = category.subcategories
-                            "Home Decor" -> _grocessaryTexts.value = category.subcategories
-                            "Lifestyle" -> _sectionTexts.value = category.subcategories
-                        }
                     }
                     _categoryChips.value = chipNames
                     Log.d("HomeViewModel", "Parsed categories: ${categoryDoc.categories}")
