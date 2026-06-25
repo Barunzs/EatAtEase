@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login_gradient"
+    tools:context=".LoginActivity">
+
+    <!-- Background Mesh Gradient Blobs -->
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="top|start"
+        android:layout_marginStart="-60dp"
+        android:layout_marginTop="-60dp"
+        android:alpha="0.3"
+        android:importantForAccessibility="no"
+        android:src="@drawable/bg_login_blob_primary" />
+
+    <ImageView
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="-80dp"
+        android:layout_marginBottom="-80dp"
+        android:alpha="0.3"
+        android:importantForAccessibility="no"
+        android:src="@drawable/bg_login_blob_secondary" />
+
+    <!-- Main Login Card -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:id="@+id/login_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="0dp"
+                android:background="@drawable/bg_login_card"
+                android:elevation="8dp"
+                android:maxWidth="420dp"
+                android:orientation="vertical"
+                android:padding="32dp">
+
+                <!-- Header / Logo Area -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <!-- Logo Circle with Shopping Bag Icon -->
+                    <FrameLayout
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/bg_login_logo_circle"
+                        android:elevation="4dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="🛍️"
+                            android:textColor="#CACFFF"
+                            android:textSize="28sp" />
+                    </FrameLayout>
+
+                    <!-- App Title -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/login_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="-0.02"
+                        android:text="@string/app_name"
+                        android:textColor="@color/text_primary"
+                        android:textSize="36sp"
+                        android:textStyle="bold" />
+
+                    <!-- Subtitle -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/login_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="24dp"
+                        android:text="@string/login_subtitle"
+                        android:textAlignment="center"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- EMAIL / PASSWORD FORM (default visible) -->
+                <!-- ═══════════════════════════════════════════ -->
+                <LinearLayout
+                    android:id="@+id/email_password_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Email Input -->
+                    <LinearLayout
+                        android:id="@+id/email_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_login_input_bg"
+                        android:focusable="false"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="10dp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.05"
+                            android:text="@string/login_email_label"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/edit_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="emailAddress"
+                            android:background="@android:color/transparent"
+                            android:hint="@string/login_email_hint"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1"
+                            android:minHeight="32dp"
+                            android:paddingVertical="4dp"
+                            android:textColor="@color/text_primary"
+                            android:textColorHint="@color/text_input_hint"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <!-- Password Input -->
+                    <LinearLayout
+                        android:id="@+id/password_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_login_input_bg"
+                        android:focusable="false"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="10dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.05"
+                                android:text="@string/login_password_label"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/edit_password"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="password"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/login_password_hint"
+                                android:inputType="textPassword"
+                                android:maxLines="1"
+                                android:minHeight="32dp"
+                                android:paddingVertical="4dp"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_input_hint"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <!-- Toggle Password Visibility -->
+                        <ImageButton
+                            android:id="@+id/btn_toggle_password"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:contentDescription="@string/login_toggle_password"
+                            android:src="@drawable/ic_visibility_off"
+                            app:tint="@color/text_secondary" />
+                    </LinearLayout>
+
+                    <!-- Remember Me & Forgot Password Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.checkbox.MaterialCheckBox
+                            android:id="@+id/checkbox_remember_me"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minHeight="0dp"
+                            android:text="@string/login_remember_me"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp"
+                            app:buttonTint="@color/brand_accent" />
+
+                        <Space
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/text_forgot_password"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:letterSpacing="0.01"
+                            android:text="@string/login_forgot_password"
+                            android:textColor="@color/brand_accent"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="24dp" />
+
+                    <!-- Sign In Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_sign_in"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_login_button"
+                        android:elevation="6dp"
+                        android:letterSpacing="0.01"
+                        android:text="@string/login_sign_in"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="999dp"
+                        app:rippleColor="#40FFFFFF" />
+
+                </LinearLayout>
+
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- OTP LOGIN FORM (hidden by default) -->
+                <!-- ═══════════════════════════════════════════ -->
+                <LinearLayout
+                    android:id="@+id/otp_section"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <!-- Phone Number Input -->
+                    <LinearLayout
+                        android:id="@+id/phone_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/selector_login_input_bg"
+                        android:focusable="false"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingHorizontal="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="10dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginEnd="12dp"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_phone" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.05"
+                                android:text="@string/login_phone_label"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/edit_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autofillHints="phone"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/login_phone_hint"
+                                android:inputType="phone"
+                                android:maxLines="1"
+                                android:minHeight="32dp"
+                                android:paddingVertical="4dp"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_input_hint"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="16dp" />
+
+                    <!-- Send OTP Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_send_otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/bg_login_button"
+                        android:elevation="6dp"
+                        android:letterSpacing="0.01"
+                        android:text="@string/login_send_otp"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:backgroundTint="@null"
+                        app:cornerRadius="999dp"
+                        app:rippleColor="#40FFFFFF" />
+
+                    <!-- OTP Input Section (shown after Send OTP) -->
+                    <LinearLayout
+                        android:id="@+id/otp_input_section"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <!-- OTP Sent Message -->
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/otp_sent_message"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:textColor="@color/success_text"
+                            android:textSize="13sp"
+                            tools:text="OTP sent to +91 98765 43210" />
+
+                        <!-- 6-Digit OTP Input -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/selector_login_input_bg"
+                            android:focusable="false"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp"
+                            android:paddingTop="8dp"
+                            android:paddingBottom="10dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.05"
+                                android:text="@string/login_otp_label"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/edit_otp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@android:color/transparent"
+                                android:hint="@string/login_otp_hint"
+                                android:inputType="number"
+                                android:letterSpacing="0.3"
+                                android:maxLength="6"
+                                android:maxLines="1"
+                                android:minHeight="32dp"
+                                android:paddingVertical="4dp"
+                                android:textColor="@color/text_primary"
+                                android:textColorHint="@color/text_input_hint"
+                                android:textSize="22sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Resend Timer -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="end"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/text_resend_otp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:text="@string/login_resend_otp"
+                                android:textColor="@color/brand_accent"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="16dp" />
+
+                        <!-- Verify OTP Button -->
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btn_verify_otp"
+                            android:layout_width="match_parent"
+                            android:layout_height="56dp"
+                            android:background="@drawable/bg_login_button"
+                            android:elevation="6dp"
+                            android:letterSpacing="0.01"
+                            android:text="@string/login_verify_otp"
+                            android:textAllCaps="false"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:backgroundTint="@null"
+                            app:cornerRadius="999dp"
+                            app:rippleColor="#40FFFFFF" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- Progress Bar (shared, initially hidden) -->
+                <!-- ═══════════════════════════════════════════ -->
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/login_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:indeterminate="true"
+                    android:visibility="gone"
+                    app:indicatorColor="@color/brand_accent"
+                    app:indicatorSize="36dp"
+                    app:trackCornerRadius="4dp" />
+
+                <!-- ═══════════════════════════════════════════ -->
+                <!-- "OR" Divider + Mode Toggle -->
+                <!-- ═══════════════════════════════════════════ -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/stroke_default" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="12dp"
+                        android:text="@string/login_or"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="13sp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1"
+                        android:background="@color/stroke_default" />
+                </LinearLayout>
+
+                <!-- Toggle to switch between Email and OTP -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_toggle_login_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/bg_login_outlined_button"
+                    android:letterSpacing="0.01"
+                    android:text="@string/login_switch_to_otp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/brand_accent"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@null"
+                    app:cornerRadius="999dp"
+                    app:icon="@drawable/ic_phone"
+                    app:iconGravity="textStart"
+                    app:iconSize="20dp"
+                    app:iconTint="@color/brand_accent"
+                    app:rippleColor="@color/brand_accent_alpha"
+                    app:strokeColor="@color/brand_accent"
+                    app:strokeWidth="1.5dp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp" />
+
+                <!-- Sign Up Footer -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login_no_account"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/text_sign_up"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:text="@string/login_sign_up"
+                        android:textColor="@color/brand_accent"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

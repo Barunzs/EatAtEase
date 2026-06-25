@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "19846085392",
+    "project_id": "studio-3932527990-e9d87",
+    "storage_bucket": "studio-3932527990-e9d87.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19846085392:android:03a8d790efd0ac863a0395",
+        "android_client_info": {
+          "package_name": "com.shop.eatatease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19846085392-ki9r0vse0d2rsh95srleb64m1fa3el2u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy5WmBj4CNpbNMNaHJlY0KSJLH3gpU_ss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19846085392-ki9r0vse0d2rsh95srleb64m1fa3el2u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

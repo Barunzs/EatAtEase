@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - ShopModern</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "primary-fixed": "#dee0ff",
+                "inverse-on-surface": "#f0f0f3",
+                "on-background": "#1a1c1e",
+                "on-secondary-fixed-variant": "#2f3f92",
+                "tertiary-container": "#575a64",
+                "outline": "#757684",
+                "on-primary-fixed": "#00105c",
+                "surface-container-low": "#f3f3f6",
+                "primary-container": "#3f51b5",
+                "surface-tint": "#4355b9",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "surface-container-highest": "#e2e2e5",
+                "inverse-primary": "#bac3ff",
+                "tertiary-fixed": "#e0e2ee",
+                "on-surface-variant": "#454652",
+                "tertiary-fixed-dim": "#c4c6d2",
+                "secondary-container": "#96a5ff",
+                "on-tertiary-fixed": "#181b24",
+                "secondary-fixed-dim": "#bac3ff",
+                "on-tertiary-container": "#cfd2dd",
+                "surface-bright": "#f9f9fc",
+                "on-secondary-container": "#27378a",
+                "outline-variant": "#c5c5d4",
+                "surface-dim": "#dadadc",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#dee0ff",
+                "surface-container": "#eeeef0",
+                "on-tertiary-fixed-variant": "#434750",
+                "secondary": "#4858ab",
+                "surface-variant": "#e2e2e5",
+                "on-secondary-fixed": "#00105b",
+                "primary-fixed-dim": "#bac3ff",
+                "surface": "#f9f9fc",
+                "primary": "#24389c",
+                "inverse-surface": "#2f3133",
+                "tertiary": "#3f434c",
+                "on-tertiary": "#ffffff",
+                "background": "#f9f9fc",
+                "on-primary": "#ffffff",
+                "on-surface": "#1a1c1e",
+                "on-error": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-primary-fixed-variant": "#293ca0",
+                "surface-container-high": "#e8e8ea",
+                "on-secondary": "#ffffff",
+                "on-primary-container": "#cacfff"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "xs": "4px",
+                "sm": "8px",
+                "lg": "24px",
+                "unit": "4px",
+                "margin-mobile": "16px",
+                "xl": "32px",
+                "gutter": "24px",
+                "margin-desktop": "64px",
+                "md": "16px"
+        },
+        "fontFamily": {
+                "title-lg": [
+                        "Manrope"
+                ],
+                "label-md": [
+                        "Manrope"
+                ],
+                "body-lg": [
+                        "Manrope"
+                ],
+                "headline-lg": [
+                        "Manrope"
+                ],
+                "headline-md": [
+                        "Manrope"
+                ],
+                "body-md": [
+                        "Manrope"
+                ],
+                "label-sm": [
+                        "Manrope"
+                ],
+                "headline-sm": [
+                        "Manrope"
+                ]
+        },
+        "fontSize": {
+                "title-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-surface to-surface-container-high text-on-surface antialiased min-h-[884px] flex items-center justify-center p-margin-mobile relative overflow-hidden">
+<!-- Subtle Mesh Gradient Background Elements -->
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary-container rounded-full mix-blend-multiply filter blur-[100px] opacity-20 pointer-events-none"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-secondary-container rounded-full mix-blend-multiply filter blur-[120px] opacity-20 pointer-events-none"></div>
+<!-- Main Container -->
+<main class="w-full max-w-[420px] flex flex-col gap-xl bg-surface/80 backdrop-blur-xl p-xl rounded-xl shadow-lg border border-surface-variant z-10 relative">
+<!-- Header / Logo Area -->
+<header class="flex flex-col items-center text-center gap-sm">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center mb-sm shadow-md">
+<span class="material-symbols-outlined text-on-primary-container text-[32px]" style="font-variation-settings: 'FILL' 1;">
+                    shopping_bag
+                </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">ShopModern</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Welcome back. Please enter your details.</p>
+</header>
+<!-- Login Form -->
+<form action="#" class="flex flex-col gap-lg" method="POST">
+<!-- Input Group -->
+<div class="flex flex-col gap-md">
+<!-- Email Input -->
+<div class="relative bg-surface-container-lowest/50 backdrop-blur-sm rounded-lg border border-outline-variant focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all px-md py-sm shadow-sm">
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-[2px]" for="email">
+                        Email
+                    </label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-lg text-body-lg text-on-surface placeholder:text-outline-variant outline-none" id="email" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+<!-- Password Input -->
+<div class="relative bg-surface-container-lowest/50 backdrop-blur-sm rounded-lg border border-outline-variant focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all px-md py-sm flex items-center shadow-sm">
+<div class="flex-grow">
+<label class="font-label-sm text-label-sm text-on-surface-variant block mb-[2px]" for="password">
+                            Password
+                        </label>
+<input class="w-full bg-transparent border-none p-0 focus:ring-0 font-body-lg text-body-lg text-on-surface placeholder:text-outline-variant outline-none" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface p-sm focus:outline-none transition-colors" type="button">
+<span class="material-symbols-outlined">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Additional Actions -->
+<div class="flex items-center justify-between mt-[-8px]">
+<label class="flex items-center gap-sm cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer appearance-none w-4 h-4 rounded-DEFAULT border-2 border-outline checked:bg-primary checked:border-primary transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-on-primary text-[14px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 peer-checked:opacity-100 pointer-events-none" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Remember me</span>
+</label>
+<a class="font-label-md text-label-md text-primary hover:text-surface-tint transition-colors" href="#">
+                    Forgot password?
+                </a>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-gradient-to-r from-primary to-surface-tint hover:from-surface-tint hover:to-primary active:from-on-primary-fixed-variant active:to-primary text-on-primary font-label-md text-label-md py-[14px] px-lg rounded-full shadow-md hover:shadow-lg transition-all duration-300 flex justify-center items-center gap-sm mt-sm transform hover:-translate-y-[1px]" type="submit">
+                Sign In
+            </button>
+</form>
+<!-- Footer Links -->
+<div class="text-center">
+<p class="font-body-md text-body-md text-on-surface-variant">
+                Don't have an account? 
+                <a class="font-label-md text-label-md text-primary hover:text-surface-tint transition-colors ml-xs font-semibold" href="#">
+                    Sign up
+                </a>
+</p>
+</div>
+</main>
+</body></html>

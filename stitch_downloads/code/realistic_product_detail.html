@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "primary-fixed": "#dee0ff",
+                "inverse-on-surface": "#f0f0f3",
+                "on-background": "#1a1c1e",
+                "on-secondary-fixed-variant": "#2f3f92",
+                "tertiary-container": "#575a64",
+                "outline": "#757684",
+                "on-primary-fixed": "#00105c",
+                "surface-container-low": "#f3f3f6",
+                "primary-container": "#3f51b5",
+                "surface-tint": "#4355b9",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "surface-container-highest": "#e2e2e5",
+                "inverse-primary": "#bac3ff",
+                "tertiary-fixed": "#e0e2ee",
+                "on-surface-variant": "#454652",
+                "tertiary-fixed-dim": "#c4c6d2",
+                "secondary-container": "#96a5ff",
+                "on-tertiary-fixed": "#181b24",
+                "secondary-fixed-dim": "#bac3ff",
+                "on-tertiary-container": "#cfd2dd",
+                "surface-bright": "#f9f9fc",
+                "on-secondary-container": "#27378a",
+                "outline-variant": "#c5c5d4",
+                "surface-dim": "#dadadc",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#dee0ff",
+                "surface-container": "#eeeef0",
+                "on-tertiary-fixed-variant": "#434750",
+                "secondary": "#4858ab",
+                "surface-variant": "#e2e2e5",
+                "on-secondary-fixed": "#00105b",
+                "primary-fixed-dim": "#bac3ff",
+                "surface": "#f9f9fc",
+                "primary": "#24389c",
+                "inverse-surface": "#2f3133",
+                "tertiary": "#3f434c",
+                "on-tertiary": "#ffffff",
+                "background": "#f9f9fc",
+                "on-primary": "#ffffff",
+                "on-surface": "#1a1c1e",
+                "on-error": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-primary-fixed-variant": "#293ca0",
+                "surface-container-high": "#e8e8ea",
+                "on-secondary": "#ffffff",
+                "on-primary-container": "#cacfff"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "xs": "4px",
+                "sm": "8px",
+                "lg": "24px",
+                "unit": "4px",
+                "margin-mobile": "16px",
+                "xl": "32px",
+                "gutter": "24px",
+                "margin-desktop": "64px",
+                "md": "16px"
+        },
+        "fontFamily": {
+                "title-lg": [
+                        "Manrope"
+                ],
+                "label-md": [
+                        "Manrope"
+                ],
+                "body-lg": [
+                        "Manrope"
+                ],
+                "headline-lg": [
+                        "Manrope"
+                ],
+                "headline-md": [
+                        "Manrope"
+                ],
+                "body-md": [
+                        "Manrope"
+                ],
+                "label-sm": [
+                        "Manrope"
+                ],
+                "headline-sm": [
+                        "Manrope"
+                ]
+        },
+        "fontSize": {
+                "title-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-sm": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        /* Base styles to ensure consistency with M3 principles */
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-background via-surface to-surface-container-low text-on-surface antialiased min-h-screen relative pb-28">
+<!-- Custom Top App Bar for Detail Page (Task-Focused: "Back" action present, Nav Shell suppressed) -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-mobile py-sm bg-surface/80 backdrop-blur-md">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 border border-white/20 text-on-surface active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<div class="flex gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 border border-white/20 text-on-surface active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-white/80 border border-white/20 text-on-surface active:scale-95 transition-all shadow-sm">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</header>
+<!-- Product Image Hero -->
+<section class="w-full h-[486px] relative bg-surface-container-lowest">
+<img alt="Premium Noise-Cancelling Wireless Headphones" class="w-full h-full object-cover object-center" data-alt="A high-resolution product photography shot of sleek, premium matte-black wireless headphones resting delicately on a clean, light-grey studio pedestal. The lighting is incredibly soft and bright, casting gentle, diffused shadows that emphasize the organic curves and high-end materials of the product. The overall visual aesthetic perfectly aligns with a modern, high-trust e-commerce light mode design system, conveying a sense of acoustic luxury and minimalist engineering." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgMbPRpp9_nfmt1EuEXUMO7zF0IPZN6Wf4RDYHDqhA6y7HFv0PyHr6XWfP2gd8nbhLJPWhfW5xej8VCm9qO1TP9TX_fwHoyvbzNJyT75-eDS9cS75mV48WYpQPmciIxxPxbllTGiU_i0-E6jhu93DiV41Tup_KQDiArqqeY_EyvgvMU02VAPxUovYaomXMvWhyNuxWkY2F3Ko6DFrZVobvxFTIET9kXi4oiaBzpGcG-3rq350a4gYy6L1v29LhiLsKt-B_yGJ0XrQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60"></div>
+</section>
+<!-- Product Details Content -->
+<main class="px-margin-mobile pt-lg flex flex-col gap-lg relative z-10">
+<!-- Header Info -->
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between items-start">
+<h1 class="font-headline-md text-headline-md text-on-surface flex-1 pr-md">Aura Pro Noise-Cancelling Headphones</h1>
+</div>
+<div class="flex items-center gap-xs mt-xs">
+<div class="flex items-center text-[#ffb400]">
+<span class="material-symbols-outlined icon-fill text-[20px]">star</span>
+<span class="material-symbols-outlined icon-fill text-[20px]">star</span>
+<span class="material-symbols-outlined icon-fill text-[20px]">star</span>
+<span class="material-symbols-outlined icon-fill text-[20px]">star</span>
+<span class="material-symbols-outlined text-[20px]">star_half</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant ml-sm">4.8 (1,284 reviews)</span>
+</div>
+<p class="font-headline-lg text-headline-lg text-primary mt-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-surface-tint">$299.00</p>
+</div>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/50 to-transparent"></div>
+<!-- Selections: Color -->
+<div class="flex flex-col gap-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface">Select Color</h2>
+<div class="flex gap-md items-center mt-xs">
+<!-- Selected Color -->
+<button aria-label="Midnight Black" class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2a2a2a] to-[#111111] border-2 border-primary outline outline-2 outline-offset-2 outline-surface flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined icon-fill text-white text-[16px]">check</span>
+</button>
+<!-- Unselected Colors -->
+<button aria-label="Lunar White" class="w-10 h-10 rounded-full bg-gradient-to-br from-[#ffffff] to-[#f0f0f0] border border-outline-variant shadow-sm hover:shadow-md transition-shadow"></button>
+<button aria-label="Navy Blue" class="w-10 h-10 rounded-full bg-gradient-to-br from-[#3b526b] to-[#1c2a38] border border-outline-variant shadow-sm hover:shadow-md transition-shadow"></button>
+</div>
+</div>
+<!-- Selections: Size / Variation -->
+<div class="flex flex-col gap-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface">Style Edition</h2>
+<div class="flex flex-wrap gap-sm mt-xs">
+<button class="px-md py-sm rounded-lg bg-gradient-to-r from-primary to-surface-tint text-on-primary font-label-md text-label-md shadow-md border-none">Standard</button>
+<button class="px-md py-sm rounded-lg bg-white/60 text-on-surface-variant font-label-md text-label-md border border-outline-variant hover:bg-white/80 backdrop-blur-sm shadow-sm transition-all">Bass Boosted</button>
+<button class="px-md py-sm rounded-lg bg-white/60 text-on-surface-variant font-label-md text-label-md border border-outline-variant hover:bg-white/80 backdrop-blur-sm shadow-sm transition-all">Studio Flat</button>
+</div>
+</div>
+<div class="h-px w-full bg-gradient-to-r from-transparent via-outline-variant/50 to-transparent"></div>
+<!-- Description -->
+<div class="flex flex-col gap-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface">Product Overview</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                Immerse yourself in high-fidelity audio with the Aura Pro. Featuring next-generation active noise cancellation and custom-tuned 40mm drivers, these headphones deliver pristine clarity across the entire frequency spectrum. The ergonomic memory foam ear cups provide all-day comfort, while the 30-hour battery life ensures your playlist never stops.
+            </p>
+<ul class="flex flex-col gap-sm mt-sm">
+<li class="flex items-center gap-sm text-on-surface-variant">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-primary">bluetooth</span>
+</div>
+<span class="font-body-md text-body-md">Bluetooth 5.3 Multi-point connection</span>
+</li>
+<li class="flex items-center gap-sm text-on-surface-variant">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-primary">battery_charging_full</span>
+</div>
+<span class="font-body-md text-body-md">Fast charging: 5 mins = 4 hours playback</span>
+</li>
+<li class="flex items-center gap-sm text-on-surface-variant">
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px] text-primary">mic</span>
+</div>
+<span class="font-body-md text-body-md">Beamforming mics for crystal-clear calls</span>
+</li>
+</ul>
+</div>
+</main>
+<!-- Bottom Action Bar (Floating FAB-style container) -->
+<div class="fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-lg border-t border-white/20 px-margin-mobile py-md flex items-center gap-md shadow-[0_-8px_32px_rgba(0,0,0,0.08)] z-50">
+<!-- Quantity Selector -->
+<div class="flex items-center bg-surface-container-low rounded-xl h-12 px-sm shadow-inner border border-white/40">
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant rounded-lg hover:bg-white/50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<span class="font-title-lg text-title-lg text-on-surface w-10 text-center">1</span>
+<button class="w-8 h-8 flex items-center justify-center text-on-surface-variant rounded-lg hover:bg-white/50 transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+<!-- Add to Cart Primary Action -->
+<button class="flex-1 bg-gradient-to-r from-primary to-surface-tint text-on-primary h-12 rounded-xl flex justify-center items-center gap-sm shadow-lg hover:shadow-xl active:scale-[0.98] transition-all font-label-md text-label-md border border-white/10">
+<span class="material-symbols-outlined">shopping_cart</span>
+            Add to Cart
+        </button>
+</div>
+</body></html>

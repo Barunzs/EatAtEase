@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!--  Material Design 3 Palette overrides for Space-Blue Dark Theme-->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <color name="md_primary_80">#94A3FF</color>
+    <color name="md_secondary_80">#B0B8C8</color>
+    <color name="md_neutral_06">#0A0E17</color>
+    <color name="md_neutral_10">#0D121F</color>
+    <color name="md_neutral_12">#131824</color>
+    <color name="md_neutral_17">#1C2232</color>
+    <color name="md_neutral_20">#22293A</color>
+    <color name="md_neutral_22">#272F44</color>
+    <color name="md_neutral_90">#E6EBF5</color>
+    <color name="md_neutral_var_30">#1C2232</color>
+    <color name="md_neutral_var_60">#424D68</color>
+    <color name="md_neutral_var_80">#B0B8C8</color>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!--  Semantic Colors — Night / Dark overrides                  -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <!-- Text colors -->
+    <color name="text_primary">#E6EBF5</color>
+    <color name="text_secondary">#B0B8C8</color>
+    <color name="text_tertiary">#8892A6</color>
+    <color name="text_hint">#6E788B</color>
+    <color name="text_input_hint">#424D68</color>
+
+    <!-- Brand accent (lighter in dark mode for readability) -->
+    <color name="brand_accent">#94A3FF</color>
+    <color name="brand_accent_alpha">#1A94A3FF</color>
+
+    <!-- Surface / Background -->
+    <color name="surface_page">#0A0E17</color>
+    <color name="surface_page_alt">#0A0E17</color>
+    <color name="surface_card">#131824</color>
+    <color name="surface_card_translucent">#CC131824</color>
+    <color name="surface_elevated">#1C2232</color>
+    <color name="surface_bottom_bar">#E60A0E17</color>
+
+    <!-- Stroke / Divider -->
+    <color name="stroke_default">#22293A</color>
+    <color name="stroke_subtle">#1C2232</color>
+    <color name="stroke_divider">#181E2E</color>
+
+    <!-- Semantic colors -->
+    <color name="success_text">#81C784</color>
+    <color name="success_bg">#0E2818</color>
+    <color name="success_stroke">#1C542E</color>
+    <color name="danger_button">#EF5350</color>
+
+    <!-- Component backgrounds -->
+    <color name="search_bar_fill">#161B2B</color>
+    <color name="search_bar_stroke">#22293A</color>
+    <color name="quantity_selector_fill">#161B2B</color>
+    <color name="product_image_start">#131824</color>
+    <color name="product_image_end">#1C2232</color>
+    <color name="add_button_fill">#3D52C8</color>
+    <color name="chip_inactive_fill">#131824</color>
+    <color name="chip_inactive_stroke">#22293A</color>
+    <color name="checkout_product_image_fill">#161B2B</color>
+    <color name="payment_selected_stroke">#94A3FF</color>
+    <color name="payment_unselected_stroke">#22293A</color>
+    <color name="circle_button_fill">#CC131824</color>
+    <color name="circle_button_stroke">#33FFFFFF</color>
+    <color name="circle_button_ripple">#2094A3FF</color>
+    <color name="add_button_ripple">#4094A3FF</color>
+
+    <!-- Profile header avatar -->
+    <color name="avatar_bg">#1F2F80</color>
+    <color name="avatar_stroke">#40FFFFFF</color>
+
+    <!-- Camera badge -->
+    <color name="camera_badge_fill">#94A3FF</color>
+    <color name="camera_badge_stroke">#0A0E17</color>
+
+    <!-- Login input -->
+    <color name="login_input_fill">#40131824</color>
+    <color name="login_input_stroke">#30394E</color>
+    <color name="login_input_focused_stroke">#94A3FF</color>
+    <color name="login_card_fill">#CC131824</color>
+    <color name="login_card_stroke">#22293A</color>
+
+    <!-- Icon tint for preferences section -->
+    <color name="icon_tint_secondary">#B0B8C8</color>
+    <color name="chevron_tint">#424D68</color>
+
+    <!-- Save button tint -->
+    <color name="save_button_bg">#94A3FF</color>
+
+    <!-- Feature icon alpha background -->
+    <color name="feature_icon_bg">#1A94A3FF</color>
+
+    <!-- Profile gradient -->
+    <color name="profile_gradient_start">#060B24</color>
+    <color name="profile_gradient_center">#131B4F</color>
+    <color name="profile_gradient_end">#2C3688</color>
+
+    <!-- Chip active gradient -->
+    <color name="chip_active_start">#2C3EAB</color>
+    <color name="chip_active_end">#4250BA</color>
+
+    <!-- Button gradient colors (vibrant, high contrast in dark mode) -->
+    <color name="button_gradient_start">#3D52C8</color>
+    <color name="button_gradient_end">#6474E5</color>
+
+    <!-- Component-specific colors -->
+    <color name="add_button_icon">#FFFFFF</color>
+    <color name="quantity_selector_icon">#E6EBF5</color>
+    <color name="circle_button_icon">#E6EBF5</color>
+
+</resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_transform">
+
+    <fragment
+        android:id="@+id/nav_transform"
+        android:name="com.shop.eatatease.ui.home.HomeFragment"
+        android:label="@string/menu_transform"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_home_to_product_detail"
+            app:destination="@id/nav_product_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_reflow"
+        android:name="com.shop.eatatease.ui.reflow.ReflowFragment"
+        android:label="@string/menu_reflow"
+        tools:layout="@layout/fragment_reflow" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.shop.eatatease.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.shop.eatatease.ui.settings.SettingsFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.shop.eatatease.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <!-- Product Detail -->
+    <fragment
+        android:id="@+id/nav_product_detail"
+        android:name="com.shop.eatatease.ui.productdetail.ProductDetailFragment"
+        android:label="Product Detail"
+        tools:layout="@layout/fragment_product_detail">
+
+        <argument
+            android:name="product_id"
+            app:argType="string" />
+        <argument
+            android:name="product_name"
+            app:argType="string" />
+        <argument
+            android:name="product_category"
+            app:argType="string" />
+        <argument
+            android:name="product_price"
+            app:argType="string" />
+        <argument
+            android:name="product_original_price"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="product_image_res_id"
+            app:argType="integer" />
+        <argument
+            android:name="product_description"
+            app:argType="string" />
+        <argument
+            android:name="product_rating"
+            app:argType="float" />
+        <argument
+            android:name="product_review_count"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_product_detail_to_checkout"
+            app:destination="@id/nav_checkout"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <!-- Checkout (reads from CartManager, no arguments needed) -->
+    <fragment
+        android:id="@+id/nav_checkout"
+        android:name="com.shop.eatatease.ui.checkout.CheckoutFragment"
+        android:label="Checkout"
+        tools:layout="@layout/fragment_checkout" />
+
+</navigation>

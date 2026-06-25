@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!--  MD3 Reference Palette — EatAtEase Indigo + Saffron        -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <!-- Primary (Indigo) -->
+    <color name="md_primary_10">#00006B</color>
+    <color name="md_primary_20">#0F0082</color>
+    <color name="md_primary_30">#2237A8</color>
+    <color name="md_primary_40">#3D52C8</color>   <!-- light primary -->
+    <color name="md_primary_80">#BAC3FF</color>   <!-- dark primary -->
+    <color name="md_primary_90">#DEE0FF</color>
+    <color name="md_primary_95">#F0EFFF</color>
+    <color name="md_primary_100">#FFFFFF</color>
+
+    <!-- Secondary (Slate blue) -->
+    <color name="md_secondary_30">#404693</color>
+    <color name="md_secondary_40">#5C63A6</color>
+    <color name="md_secondary_80">#BEC2FF</color>
+    <color name="md_secondary_90">#E0E0FF</color>
+    <color name="md_secondary_95">#F0EEFF</color>
+
+    <!-- Tertiary (Saffron / Warm Orange — food accent) -->
+    <color name="md_tertiary_10">#310D00</color>
+    <color name="md_tertiary_30">#7A3100</color>
+    <color name="md_tertiary_40">#9B4900</color>
+    <color name="md_tertiary_80">#FFB68A</color>   <!-- dark tertiary -->
+    <color name="md_tertiary_90">#FFDBCA</color>
+    <color name="md_tertiary_95">#FFEDE6</color>
+
+    <!-- Error -->
+    <color name="md_error_40">#BA1A1A</color>
+    <color name="md_error_80">#FFB4AB</color>
+    <color name="md_error_90">#FFDAD6</color>
+
+    <!-- Neutral (Surface / Background) -->
+    <color name="md_neutral_06">#111318</color>
+    <color name="md_neutral_10">#1A1C20</color>
+    <color name="md_neutral_12">#1E2026</color>
+    <color name="md_neutral_17">#272A31</color>
+    <color name="md_neutral_20">#2F3136</color>
+    <color name="md_neutral_22">#333742</color>
+    <color name="md_neutral_24">#383C48</color>
+    <color name="md_neutral_87">#D9D9E0</color>
+    <color name="md_neutral_90">#E2E2E9</color>
+    <color name="md_neutral_92">#E8E7EF</color>
+    <color name="md_neutral_94">#EDEDF4</color>
+    <color name="md_neutral_95">#F0F0F7</color>
+    <color name="md_neutral_96">#F3F3FA</color>
+    <color name="md_neutral_98">#F9F9FF</color>
+    <color name="md_neutral_99">#FDFBFF</color>
+    <color name="md_neutral_100">#FFFFFF</color>
+
+    <!-- Neutral Variant (Outline / OnSurfaceVariant) -->
+    <color name="md_neutral_var_30">#44474F</color>
+    <color name="md_neutral_var_50">#74777F</color>
+    <color name="md_neutral_var_60">#8E9099</color>
+    <color name="md_neutral_var_80">#C4C6D0</color>
+    <color name="md_neutral_var_90">#E1E2EC</color>
+    <color name="md_neutral_var_95">#F0F0FA</color>
+
+    <!-- Splash / legacy -->
+    <color name="splash_bg">#3D52C8</color>
+    <color name="food_orange">#FF7043</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Legacy indigo aliases (keep so existing hardcoded references still resolve) -->
+    <color name="indigo_primary">#3D52C8</color>
+    <color name="indigo_on_primary">#FFFFFF</color>
+    <color name="indigo_primary_container">#DEE0FF</color>
+    <color name="indigo_on_primary_container">#001188</color>
+    <color name="indigo_secondary">#5C63A6</color>
+    <color name="indigo_secondary_container">#E0E0FF</color>
+    <color name="indigo_surface">#F9F9FF</color>
+    <color name="indigo_surface_tint">#3D52C8</color>
+    <color name="indigo_on_surface">#1A1C20</color>
+    <color name="indigo_on_surface_variant">#44474F</color>
+    <color name="indigo_outline">#74777F</color>
+    <color name="indigo_outline_variant">#C4C6D0</color>
+    <color name="indigo_surface_container_high">#EDEDF4</color>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!--  Semantic Colors (theme-aware — overridden in values-night) -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+
+    <!-- Text colors -->
+    <color name="text_primary">#1A1C1E</color>
+    <color name="text_secondary">#454652</color>
+    <color name="text_tertiary">#757684</color>
+    <color name="text_hint">#8F9099</color>
+    <color name="text_input_hint">#C5C5D4</color>
+
+    <!-- Brand accent (used for links, price highlights, icons) -->
+    <color name="brand_accent">#24389C</color>
+    <color name="brand_accent_alpha">#1A24389C</color>
+
+    <!-- Surface / Background -->
+    <color name="surface_page">#F9F9FC</color>
+    <color name="surface_page_alt">#F6F6FA</color>
+    <color name="surface_card">#FFFFFF</color>
+    <color name="surface_card_translucent">#CCF9F9FC</color>
+    <color name="surface_elevated">#F3F3F6</color>
+    <color name="surface_bottom_bar">#E6F9F9FC</color>
+
+    <!-- Stroke / Divider -->
+    <color name="stroke_default">#E2E2E5</color>
+    <color name="stroke_subtle">#E8E8EA</color>
+    <color name="stroke_divider">#F0F0F3</color>
+
+    <!-- Semantic colors -->
+    <color name="success_text">#2E7D32</color>
+    <color name="success_bg">#E8F5E9</color>
+    <color name="success_stroke">#A5D6A7</color>
+    <color name="danger_button">#D32F2F</color>
+
+    <!-- Component backgrounds -->
+    <color name="search_bar_fill">#EEEEF0</color>
+    <color name="search_bar_stroke">#E8E8EA</color>
+    <color name="quantity_selector_fill">#F3F3F6</color>
+    <color name="product_image_start">#F3F3F6</color>
+    <color name="product_image_end">#E2E2E5</color>
+    <color name="add_button_fill">#DEE0FF</color>
+    <color name="chip_inactive_fill">#F9F9FC</color>
+    <color name="chip_inactive_stroke">#E2E2E5</color>
+    <color name="checkout_product_image_fill">#F3F3F6</color>
+    <color name="payment_selected_stroke">#24389C</color>
+    <color name="payment_unselected_stroke">#E2E2E5</color>
+    <color name="circle_button_fill">#CCF9F9FC</color>
+    <color name="circle_button_stroke">#33FFFFFF</color>
+    <color name="circle_button_ripple">#2024389C</color>
+    <color name="add_button_ripple">#4024389C</color>
+
+    <!-- Profile header avatar -->
+    <color name="avatar_bg">#3D4DB7</color>
+    <color name="avatar_stroke">#40FFFFFF</color>
+
+    <!-- Camera badge -->
+    <color name="camera_badge_fill">#24389C</color>
+    <color name="camera_badge_stroke">#FFFFFF</color>
+
+    <!-- Login input -->
+    <color name="login_input_fill">#80FFFFFF</color>
+    <color name="login_input_stroke">#C5C5D4</color>
+    <color name="login_input_focused_stroke">#24389C</color>
+    <color name="login_card_fill">#CCF9F9FC</color>
+    <color name="login_card_stroke">#E2E2E5</color>
+
+    <!-- Icon tint for preferences section -->
+    <color name="icon_tint_secondary">#454652</color>
+    <color name="chevron_tint">#C5C5D4</color>
+
+    <!-- Save button tint -->
+    <color name="save_button_bg">#24389C</color>
+
+    <!-- Feature icon alpha background -->
+    <color name="feature_icon_bg">#1A24389C</color>
+
+    <!-- Profile gradient -->
+    <color name="profile_gradient_start">#2237A8</color>
+    <color name="profile_gradient_center">#3D52C8</color>
+    <color name="profile_gradient_end">#5C63A6</color>
+
+    <!-- Chip active gradient -->
+    <color name="chip_active_start">#24389C</color>
+    <color name="chip_active_end">#4355B9</color>
+
+    <!-- Button gradient colors -->
+    <color name="button_gradient_start">#24389C</color>
+    <color name="button_gradient_end">#4355B9</color>
+
+    <!-- Component-specific colors -->
+    <color name="add_button_icon">#00105C</color>
+    <color name="quantity_selector_icon">#1A1C1E</color>
+    <color name="circle_button_icon">#1A1C1E</color>
+
+</resources>

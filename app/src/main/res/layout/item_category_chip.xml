@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.textview.MaterialTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/chip_text"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:background="@drawable/bg_category_chip_inactive"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:letterSpacing="0.01"
+    android:paddingHorizontal="20dp"
+    android:textColor="@color/text_primary"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    tools:text="Electronics" />
