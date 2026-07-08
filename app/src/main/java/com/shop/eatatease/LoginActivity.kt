@@ -176,9 +176,26 @@ class LoginActivity : AppCompatActivity() {
     // ═══════════════════════════════════════════════════════════════
 
     /**
-     * Set up the toggle button to switch between Email/Password and OTP login modes.
+     * Wire the segmented tab bar (Email tab | Phone OTP tab) and the legacy
+     * bottom toggle button to switch between sign-in modes.
      */
     private fun setupModeToggle() {
+        // Primary entry points — the segmented tabs at the top of the card
+        binding.tabEmailBtn.setOnClickListener {
+            if (isOtpMode) {
+                isOtpMode = false
+                switchToEmailMode()
+            }
+        }
+
+        binding.tabPhoneBtn.setOnClickListener {
+            if (!isOtpMode) {
+                isOtpMode = true
+                switchToOtpMode()
+            }
+        }
+
+        // Legacy bottom button kept for backward compatibility — mirrors the tabs
         binding.btnToggleLoginMode.setOnClickListener {
             isOtpMode = !isOtpMode
             if (isOtpMode) {
@@ -189,7 +206,35 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Update the visual state of the two segmented tabs.
+     * The active tab shows a filled primary background; the inactive tab is transparent.
+     *
+     * @param otpTabActive true  → Phone OTP tab is selected
+     *                     false → Email tab is selected
+     */
+    private fun updateTabState(otpTabActive: Boolean) {
+        if (otpTabActive) {
+            // Phone OTP tab — active (filled pill)
+            binding.tabPhoneBtn.setBackgroundResource(R.drawable.bg_login_button)
+            binding.tabPhoneBtn.setTextColor(getColor(android.R.color.white))
+            // Email tab — inactive (transparent)
+            binding.tabEmailBtn.setBackgroundResource(android.R.color.transparent)
+            binding.tabEmailBtn.setTextColor(getColor(R.color.stitch_outline))
+        } else {
+            // Email tab — active (filled pill)
+            binding.tabEmailBtn.setBackgroundResource(R.drawable.bg_login_button)
+            binding.tabEmailBtn.setTextColor(getColor(android.R.color.white))
+            // Phone OTP tab — inactive (transparent)
+            binding.tabPhoneBtn.setBackgroundResource(android.R.color.transparent)
+            binding.tabPhoneBtn.setTextColor(getColor(R.color.stitch_outline))
+        }
+    }
+
     private fun switchToOtpMode() {
+        // Update tab visual state first
+        updateTabState(otpTabActive = true)
+
         // Animate out email section, animate in OTP section
         binding.emailPasswordSection.animate()
             .alpha(0f)
@@ -205,7 +250,7 @@ class LoginActivity : AppCompatActivity() {
             }
             .start()
 
-        // Update toggle button text and icon
+        // Keep legacy toggle button in sync
         binding.btnToggleLoginMode.text = getString(R.string.login_switch_to_email)
         binding.btnToggleLoginMode.setIconResource(R.drawable.ic_email)
 
@@ -220,6 +265,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun switchToEmailMode() {
+        // Update tab visual state first
+        updateTabState(otpTabActive = false)
+
         // Animate out OTP section, animate in email section
         binding.otpSection.animate()
             .alpha(0f)
@@ -235,7 +283,7 @@ class LoginActivity : AppCompatActivity() {
             }
             .start()
 
-        // Update toggle button text and icon
+        // Keep legacy toggle button in sync
         binding.btnToggleLoginMode.text = getString(R.string.login_switch_to_otp)
         binding.btnToggleLoginMode.setIconResource(R.drawable.ic_phone)
 
