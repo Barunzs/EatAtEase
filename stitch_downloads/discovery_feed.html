@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EatAtEase - Home</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e1e0ff",
+                        "surface-variant": "#e2e2e5",
+                        "surface-bright": "#f9f9fc",
+                        "on-tertiary-container": "#a4a7ff",
+                        "secondary": "#9f4200",
+                        "on-secondary-container": "#602500",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c6c5d3",
+                        "surface-tint": "#4b57aa",
+                        "inverse-primary": "#bcc3ff",
+                        "secondary-fixed-dim": "#ffb692",
+                        "on-primary-fixed": "#000d60",
+                        "background": "#f9f9fc",
+                        "on-primary-fixed-variant": "#333f91",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#07006c",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9fc",
+                        "tertiary-container": "#2927ba",
+                        "on-surface": "#1a1c1e",
+                        "on-secondary-fixed-variant": "#793100",
+                        "tertiary": "#0e009d",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-primary-container": "#9ea9ff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dfe0ff",
+                        "outline": "#767682",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3133",
+                        "primary": "#142175",
+                        "primary-fixed-dim": "#bcc3ff",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-background": "#1a1c1e",
+                        "secondary-container": "#fe7a2b",
+                        "on-surface-variant": "#454651",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "surface-container": "#eeeef0",
+                        "on-secondary-fixed": "#341100",
+                        "primary-container": "#2e3a8c",
+                        "surface-container-low": "#f3f3f6",
+                        "secondary-fixed": "#ffdbcb",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-dim": "#dadadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "xxl": "48px",
+                        "md": "16px",
+                        "margin-mobile": "20px",
+                        "gutter-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Hide scrollbar for horizontal scrolling areas */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .glass-panel {
+            background: rgba(249, 249, 252, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .shadow-level-1 {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-xxl selection:bg-primary-container selection:text-on-primary-container">
+<!-- Sticky Header (Shared Component: TopAppBar) -->
+<header class="docked full-width top-0 sticky bg-surface/70 dark:bg-surface/70 backdrop-blur-xl shadow-sm z-50 flex items-center justify-between px-margin-mobile py-sm w-full">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden shrink-0 shadow-level-1">
+<img alt="User profile portrait" class="w-full h-full object-cover" data-alt="A highly detailed, professional headshot portrait of a friendly young man with warm lighting. He has a welcoming smile. The background is a soft, out-of-focus light gray studio environment. Clean, minimalist aesthetic with sharp focus on the face." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJdZ8VijtH6rTZ2OIXuSXPXjANZ7e-zqO9klmGbBSCTF_A18GTMeIEtFek1Iq3lZ6DTW4b7I03NkKbmnYfe9FuQbauwJGJYRxLpyn_4f4XkN6hR6HLXXaWdsf0N2SeNWI41nlQ5011VkqsVVxEdyUppu8qyPRglnF7_JlPbRf4kxLekuAIm97ouvKcoTLv0eSoHzJD8miAbujKFc0fK1AE_XaUPpyxOLvOVWnVevk91VMuzX3lL6Q2I6gpD3J6cVhhGkan_Z1JU18"/>
+</div>
+<div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed-dim">Good morning, Guest</h1>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button aria-label="Notifications" class="relative hover:opacity-80 transition-opacity active:scale-95 duration-200 p-xs">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button aria-label="Cart" class="relative hover:opacity-80 transition-opacity active:scale-95 duration-200 p-xs">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">shopping_cart</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-secondary-container text-[10px] font-bold text-on-secondary-container">3</span>
+</button>
+</div>
+</header>
+<main class="px-margin-mobile pt-md pb-xxl flex flex-col gap-xl max-w-7xl mx-auto w-full">
+<!-- Search Section -->
+<section class="w-full">
+<div class="relative flex items-center w-full h-12 bg-surface-container-low rounded-full px-md focus-within:ring-2 focus-within:ring-primary transition-all shadow-level-1">
+<span class="material-symbols-outlined text-outline mr-sm">search</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-body-lg font-body-lg text-on-surface placeholder:text-outline-variant outline-none h-full w-full" placeholder="Search EatAtEase" type="text"/>
+<button aria-label="Voice search" class="p-xs text-primary hover:opacity-80 transition-opacity ml-sm">
+<span class="material-symbols-outlined">mic</span>
+</button>
+</div>
+</section>
+<!-- Categories (Horizontal Chips) -->
+<section>
+<div class="flex overflow-x-auto hide-scrollbar gap-sm pb-sm -mx-margin-mobile px-margin-mobile">
+<!-- Active Chip -->
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-primary text-on-primary whitespace-nowrap shadow-level-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">restaurant</span>
+<span class="font-label-caps text-label-caps">All</span>
+</button>
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:bg-surface-container-low whitespace-nowrap active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">smartphone</span>
+<span class="font-label-caps text-label-caps">Electronics</span>
+</button>
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:bg-surface-container-low whitespace-nowrap active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">checkroom</span>
+<span class="font-label-caps text-label-caps">Fashion</span>
+</button>
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:bg-surface-container-low whitespace-nowrap active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">chair</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</button>
+<button class="flex items-center gap-xs px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:bg-surface-container-low whitespace-nowrap active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">sports_esports</span>
+<span class="font-label-caps text-label-caps">Toys</span>
+</button>
+</div>
+</section>
+<!-- Hero Banner -->
+<section class="w-full">
+<div class="relative w-full h-[180px] rounded-[20px] overflow-hidden shadow-level-1 group cursor-pointer">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transform group-hover:scale-105 transition-transform duration-700" data-alt="A vibrant, high-quality photograph of a summer lifestyle scene. Bright sunlight illuminates a spread of elegant summer fashion accessories and fresh tropical fruits on a clean white surface. Soft shadows, high contrast, optimistic and energetic mood. The aesthetic is clean, modern, and aspirational." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBu-Pe49IeIsq0wpeLXjb5nrjUFuwhy96KyvGqehK4niiwIDfKfYtqt7aPNliZRupJ8-EA2ydRxsSrJ9KGWO_O5S15A8oJVFhLpchf5Khm1yJuJSEZZ_F0lWn4RyRWQzEEcXFtew__6L-aTf6_I5Gm540WtbTzezepR5xYEleGe55LXUzU3OWEPE5eeHLAT06o8mzUYzTvSdbt6k2fJNaa9w2pkiT00eZt6eW8yHq51hJupoLlZQgUovllf16z5IgoAD5uNaoJ-LDQ')"></div>
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/10"></div>
+<div class="absolute inset-0 p-lg flex flex-col justify-center h-full">
+<span class="font-label-caps text-label-caps text-secondary-container mb-xs tracking-widest">SUMMER SALE</span>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-md max-w-[200px] leading-tight">Up to 50% Off</h2>
+<button class="self-start px-lg py-sm bg-white text-primary rounded-full font-label-caps text-label-caps hover:bg-surface-container-low transition-colors shadow-sm active:scale-95">
+                        Shop Now
+                    </button>
+</div>
+</div>
+</section>
+<!-- Featured Products (Bento/Staggered Grid) -->
+<section>
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-title-md text-title-md text-on-background">Featured</h3>
+<button class="text-primary font-label-caps text-label-caps flex items-center gap-xs hover:opacity-80">
+                    See All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-2 gap-gutter-mobile items-start">
+<!-- Left Column -->
+<div class="flex flex-col gap-gutter-mobile">
+<!-- Product Card 1 -->
+<div class="bg-surface-container-lowest rounded-[20px] overflow-hidden shadow-level-1 flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/5] overflow-hidden">
+<img alt="Product Image" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A sleek, modern wireless headphone resting on a clean, minimal light gray surface. The lighting is soft and directional, highlighting the premium matte finish of the product. The overall mood is sophisticated and high-tech." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY6dC0ABOFREUyqvRw7ThiVOoeMKqZhOeBNHE8Us58eyIIPJipWkJ2sdZOlbybHIVWS9EwRh0otnP-Ie6A950ZMktbncCC9phc2M1tbdbpIPn8nBZP4SiHdv_QZ6LQo9PrLymTiq93z6uP_dO1EkAZCAJGyPJLaQKQgjlM9PVt5VOybgEougiVCkiI8EQKvG9_YuNAUpcKsuPOyoH9MalCbrXpA4WXA_zwiVbk4MFmN_czfNnU_bEQM7ncdLYNL3jIto9ytZ4r0zM"/>
+<div class="absolute top-sm left-sm bg-primary text-on-primary px-sm py-xs rounded-full font-label-caps text-[10px] uppercase tracking-wider">
+                                NEW
+                            </div>
+<button aria-label="Add to favorites" class="absolute top-sm right-sm w-8 h-8 rounded-full glass-panel flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite_border</span>
+</button>
+</div>
+<div class="p-md flex flex-col gap-xs flex-1 justify-between">
+<div>
+<h4 class="font-body-md text-body-md text-on-surface line-clamp-2 leading-snug">Sony Noise Cancelling Headphones</h4>
+<div class="mt-xs font-title-md text-title-md text-primary">$299.99</div>
+</div>
+<button class="mt-sm w-full py-2 bg-surface-container-high hover:bg-surface-variant text-primary rounded-full font-label-caps text-label-caps transition-colors active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span> Add
+                            </button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="bg-surface-container-lowest rounded-[20px] overflow-hidden shadow-level-1 flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-square overflow-hidden">
+<img alt="Product Image" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist, elegantly designed ceramic coffee mug filled with dark coffee, placed on a pristine white tabletop. Sunlight streams in, creating soft, natural shadows. The scene is calm, clean, and perfectly suited for a premium lifestyle brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxhwkn6Ot1VgvP_UtgmDwIN4QYLZbPZN2kTBopRNKlu83zlC0S5yiNQIxtiMqnW0N1PnlgMdtIp2uqlS5CfGsLrbAS3coP3J3Jhs89Mgb6_WEzYX-VTO-kHQxXSbDRHFkNQBnFPyid2DwyvGPIGlhLLtO3rqHmjcmdMVIwY1XswOn-a_dS7WMi-xGXCQXXQ0RYsq7MKpNzjcOIXl5UtpRG5pwBVBN0f7b0Ppz29bvRkBVLIsuSu1Bj8avkkxJv33ZjQ_3UDtd_ZDM"/>
+<button aria-label="Add to favorites" class="absolute top-sm right-sm w-8 h-8 rounded-full glass-panel flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite_border</span>
+</button>
+</div>
+<div class="p-md flex flex-col gap-xs flex-1 justify-between">
+<div>
+<h4 class="font-body-md text-body-md text-on-surface line-clamp-2 leading-snug">Artisan Ceramic Mug</h4>
+<div class="mt-xs font-title-md text-title-md text-primary">$24.00</div>
+</div>
+<button class="mt-sm w-full py-2 bg-surface-container-high hover:bg-surface-variant text-primary rounded-full font-label-caps text-label-caps transition-colors active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span> Add
+                            </button>
+</div>
+</div>
+</div>
+<!-- Right Column (Staggered layout simulated by top padding) -->
+<div class="flex flex-col gap-gutter-mobile pt-xl">
+<!-- Product Card 2 -->
+<div class="bg-surface-container-lowest rounded-[20px] overflow-hidden shadow-level-1 flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-square overflow-hidden">
+<img alt="Product Image" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A stylish, minimalist mechanical keyboard with pastel keycaps resting on a clean wooden desk. A small succulent plant sits softly out of focus in the background. Bright, natural lighting creates an airy, productive workspace atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfMvtT-NTvzLnWtOYkWGDxvyW_eIIplyA_Q8SfOkV-iXf-LzSwf0x5nmzYk5oCpUCDRGllmaZLsW2mL-Kztx57EOl5VagLQ4x9rzrrWrl9qrR23iUQ0RHQJ6CB2qs8oaveQXZyq6KlcFqPXjnQbN2M6zsjv9-BUoivzysG7hTTNpfYlaX7XiAA9QmAtDWCe0hb3Z2FIJceLE8ETHozD6X4xoFPGeYY0arEAqf0411zqr6nZd5MnrxFdctiSk_dJx23Yxg5r4mK7bs"/>
+<div class="absolute top-sm left-sm bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-caps text-[10px] uppercase tracking-wider">
+                                SALE
+                            </div>
+<button aria-label="Add to favorites" class="absolute top-sm right-sm w-8 h-8 rounded-full glass-panel flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite_border</span>
+</button>
+</div>
+<div class="p-md flex flex-col gap-xs flex-1 justify-between">
+<div>
+<h4 class="font-body-md text-body-md text-on-surface line-clamp-2 leading-snug">Mechanical Keyboard</h4>
+<div class="flex items-end gap-xs mt-xs">
+<span class="font-title-md text-title-md text-primary">$129.99</span>
+<span class="font-body-md text-body-md text-outline-variant line-through mb-1">$150</span>
+</div>
+</div>
+<button class="mt-sm w-full py-2 bg-surface-container-high hover:bg-surface-variant text-primary rounded-full font-label-caps text-label-caps transition-colors active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span> Add
+                            </button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="bg-surface-container-lowest rounded-[20px] overflow-hidden shadow-level-1 flex flex-col group cursor-pointer">
+<div class="relative w-full aspect-[4/5] overflow-hidden">
+<img alt="Product Image" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="A high-end smart watch displayed on an angled geometric pedestal. The background is a stark, clean white with deep, dramatic shadows emphasizing the sleek curves and digital display of the watch. Very premium, technical feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK92pIdgYfxtHc794bKTJbMspNgcMkYXGeJV9E4I_b2LD03NckZuHIGazFfylgiFOEkPdEHYwdhG5n4iiLBD6_oktb-K0LKz5I_EswFE-yx8UfJ3vXSnYiSuGw311u2s5SVcI1jVdIpb-Epp2t0rShtSBlpQZ9xX3Bv7ojVrEa-owMv2PzHf_fP_IuUenlEVS6gUs7lYjinQXpYfFCeNXRFjO6H9nWdekjO5a-5Gu0y68qIIf_OF9a8xBkgeRAhqFMgPqdcUXpsjk"/>
+<button aria-label="Add to favorites" class="absolute top-sm right-sm w-8 h-8 rounded-full glass-panel flex items-center justify-center text-on-surface hover:text-secondary-container transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">favorite_border</span>
+</button>
+</div>
+<div class="p-md flex flex-col gap-xs flex-1 justify-between">
+<div>
+<h4 class="font-body-md text-body-md text-on-surface line-clamp-2 leading-snug">Pro Smart Watch Series X</h4>
+<div class="mt-xs font-title-md text-title-md text-primary">$399.00</div>
+</div>
+<button class="mt-sm w-full py-2 bg-surface-container-high hover:bg-surface-variant text-primary rounded-full font-label-caps text-label-caps transition-colors active:scale-95 flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">add_shopping_cart</span> Add
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom spacing buffer -->
+<div class="h-10"></div>
+</main>
+<!-- BottomNavBar (Shared Component) -->
+<nav class="md:hidden docked full-width bottom-0 fixed rounded-t-xl bg-surface/70 dark:bg-surface/70 backdrop-blur-xl shadow-lg fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm pb-safe h-xxl">
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-md py-xs active:scale-90 transition-transform duration-150 group">
+<span class="material-symbols-outlined font-variation-settings-'FILL'-1 text-[24px]">home</span>
+<span class="font-label-caps text-label-caps mt-1">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full group">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+<span class="font-label-caps text-label-caps mt-1">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full group relative">
+<span class="material-symbols-outlined text-[24px]">shopping_cart</span>
+<span class="font-label-caps text-label-caps mt-1">Cart</span>
+<span class="absolute top-1 right-2 flex h-4 w-4 items-center justify-center rounded-full bg-secondary-container text-[10px] font-bold text-on-secondary-container border-2 border-surface">3</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full group">
+<span class="material-symbols-outlined text-[24px]">person</span>
+<span class="font-label-caps text-label-caps mt-1">Profile</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant px-md py-xs hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors rounded-full group">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+<span class="font-label-caps text-label-caps mt-1">Settings</span>
+</button>
+</nav>
+<script>
+        // Simple script to handle chip selection visually
+        document.addEventListener('DOMContentLoaded', () => {
+            const chips = document.querySelectorAll('section:nth-of-type(2) button');
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    // Reset all chips
+                    chips.forEach(c => {
+                        c.className = 'flex items-center gap-xs px-md py-sm rounded-full bg-surface-container-lowest border border-outline-variant text-on-surface-variant hover:bg-surface-container-low whitespace-nowrap active:scale-95 transition-transform';
+                    });
+                    // Set active chip
+                    chip.className = 'flex items-center gap-xs px-md py-sm rounded-full bg-primary text-on-primary whitespace-nowrap shadow-level-1 active:scale-95 transition-transform';
+                });
+            });
+        });
+    </script>
+</body></html>

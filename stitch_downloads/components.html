@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Placeholders &amp; Components</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e1e0ff",
+                        "surface-variant": "#e2e2e5",
+                        "surface-bright": "#f9f9fc",
+                        "on-tertiary-container": "#a4a7ff",
+                        "secondary": "#9f4200",
+                        "on-secondary-container": "#602500",
+                        "error": "#ba1a1a",
+                        "outline-variant": "#c6c5d3",
+                        "surface-tint": "#4b57aa",
+                        "inverse-primary": "#bcc3ff",
+                        "secondary-fixed-dim": "#ffb692",
+                        "on-primary-fixed": "#000d60",
+                        "background": "#f9f9fc",
+                        "on-primary-fixed-variant": "#333f91",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#07006c",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f9f9fc",
+                        "tertiary-container": "#2927ba",
+                        "on-surface": "#1a1c1e",
+                        "on-secondary-fixed-variant": "#793100",
+                        "tertiary": "#0e009d",
+                        "inverse-on-surface": "#f0f0f3",
+                        "on-primary-container": "#9ea9ff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#dfe0ff",
+                        "outline": "#767682",
+                        "on-tertiary-fixed-variant": "#2f2ebe",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3133",
+                        "primary": "#142175",
+                        "primary-fixed-dim": "#bcc3ff",
+                        "surface-container-highest": "#e2e2e5",
+                        "on-background": "#1a1c1e",
+                        "secondary-container": "#fe7a2b",
+                        "on-surface-variant": "#454651",
+                        "tertiary-fixed-dim": "#c0c1ff",
+                        "surface-container": "#eeeef0",
+                        "on-secondary-fixed": "#341100",
+                        "primary-container": "#2e3a8c",
+                        "surface-container-low": "#f3f3f6",
+                        "secondary-fixed": "#ffdbcb",
+                        "surface-container-lowest": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e8e8ea",
+                        "surface-dim": "#dadadc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xl": "32px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "base": "8px",
+                        "lg": "24px",
+                        "xxl": "48px",
+                        "md": "16px",
+                        "margin-mobile": "20px",
+                        "gutter-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "title-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col pb-safe">
+<!-- TopAppBar -->
+<header class="bg-surface/70 dark:bg-surface/70 backdrop-blur-xl docked full-width top-0 sticky shadow-sm z-50 transition-all duration-300">
+<div class="flex items-center justify-between px-margin-mobile py-sm w-full">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full overflow-hidden shrink-0 shadow-sm border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A close-up portrait of an elegant woman with modern styling. Minimalist background. Professional corporate headshot style, high quality lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkthE2WXKGjG9OOi4ONNN3AoRtOaL_04r9w1DScg_UaMkFyUa3zoQJ_ZwWZVnGCHHdLEu3hsxB-z-pM0C4hKfbMIS7Tyo2xrQ_7ocedszQAmEujQHTGYOrK5Wbd-YwkQr63MoTtmYzXu7H5dCaRqaE-IE-aYxF6J8g-gmQNfQaoIkhiYDVxoOHripv1oZRut9J9HXnOjtVP5exG1ULjF0fON4CddCfjhAeLkJJCdTQ0diPAzM1m4SCpIt7Bb1mpk-5J2UtkHOzy48"/>
+</div>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary dark:text-primary-fixed-dim tracking-tight">Design System</h1>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-variant transition-colors hover:opacity-80">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</div>
+</header>
+<main class="flex-grow flex flex-col px-margin-mobile pb-xxl">
+<!-- Coming Soon Section -->
+<section class="mt-lg flex flex-col md:flex-row gap-lg">
+<!-- Explore Coming Soon -->
+<div class="flex-1 bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.12)] p-lg flex flex-col items-center justify-center text-center min-h-[300px] border border-outline-variant/30 relative overflow-hidden group">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+<div class="w-32 h-32 mb-md rounded-full bg-surface-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-display-lg text-primary" style="font-variation-settings: 'FILL' 0;">explore</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-xs">Explore</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Discover new curated experiences. Coming very soon.</p>
+</div>
+<!-- Trending Coming Soon -->
+<div class="flex-1 bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.12)] p-lg flex flex-col items-center justify-center text-center min-h-[300px] border border-outline-variant/30 relative overflow-hidden group">
+<div class="absolute inset-0 bg-secondary-container/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+<div class="w-32 h-32 mb-md rounded-full bg-surface-container flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-display-lg text-secondary-container" style="font-variation-settings: 'FILL' 0;">trending_up</span>
+</div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-xs">Trending</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">See what's popular right now. Content is on the way.</p>
+</div>
+</section>
+<!-- Components Showcase -->
+<section class="mt-xxl">
+<h2 class="font-title-md text-title-md text-on-background mb-lg border-b border-outline-variant pb-xs">Component Showcase</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Buttons & Inputs -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.12)] p-lg flex flex-col gap-md">
+<h3 class="font-label-caps text-label-caps text-outline mb-sm uppercase tracking-wider">Interactive Elements</h3>
+<button class="w-full bg-secondary-container text-on-secondary rounded-full py-sm px-md font-body-lg text-body-lg font-semibold shadow-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Primary Action
+                    </button>
+<button class="w-full bg-surface text-primary border border-outline-variant rounded-full py-sm px-md font-body-lg text-body-lg font-semibold hover:bg-surface-container transition-colors flex items-center justify-center gap-xs">
+                        Secondary Outline
+                    </button>
+<button class="w-full bg-primary/10 text-primary rounded-full py-sm px-md font-body-lg text-body-lg font-semibold hover:bg-primary/20 transition-colors flex items-center justify-center gap-xs">
+                        Ghost Action
+                    </button>
+<div class="mt-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-[#F0F1F5] rounded-full py-sm pl-xl pr-sm font-body-md text-body-md border-transparent focus:border-primary focus:ring-0 transition-all outline-none text-on-surface placeholder:text-outline-variant" placeholder="Search..." type="text"/>
+</div>
+</div>
+</div>
+<!-- Chips & Product Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.12)] p-lg flex flex-col gap-md">
+<h3 class="font-label-caps text-label-caps text-outline mb-sm uppercase tracking-wider">Chips &amp; Cards</h3>
+<div class="flex flex-wrap gap-sm mb-sm">
+<span class="px-md py-xs rounded-full border border-primary text-primary font-label-caps text-label-caps cursor-pointer hover:bg-primary/5 transition-colors">Vegan</span>
+<span class="px-md py-xs rounded-full bg-primary text-on-primary font-label-caps text-label-caps cursor-pointer shadow-sm">Gluten-Free</span>
+<span class="px-md py-xs rounded-full border border-outline-variant text-on-surface-variant font-label-caps text-label-caps cursor-pointer hover:bg-surface-variant transition-colors">Organic</span>
+</div>
+<div class="bg-surface rounded-[20px] overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.12)] border border-outline-variant/20 flex-grow flex flex-col">
+<div class="h-32 w-full bg-surface-variant relative">
+<img alt="Product Image" class="w-full h-full object-cover" data-alt="A high-end, beautifully plated artisan salad in a clean, minimalist ceramic bowl. Bright, airy, soft natural lighting. High-end food photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAREzX2xXlD9F-SvvWXUa1tIRxiiXVQhxR8NMzTaT0HpSqOCi2cr-UmJ8tBG7Mi4fVFcFRNQnXZhJxW3Kva7Z_QkHLOcppi62fa7q1M_B4I_Q-X_y4OCZnHVyHj68YEJsZC3rO1OceW8trcUZvHzJCsO0x0srNXBOhIWnfbYXi-qiwN4UFYaMB8Scrr5iuUJwWaO6Qr4tjcWQKRcCzQ97xEIAC0YRgMO0OL2WBleiJuCJtV-m86Sa-W2gkm7mdQBn_rFIxpE32cxiQ"/>
+</div>
+<div class="p-md flex flex-col flex-grow justify-between bg-surface-container-lowest">
+<div>
+<h4 class="font-title-md text-title-md text-on-surface mb-xs">Artisan Salad</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Fresh, locally sourced ingredients.</p>
+</div>
+<div class="flex items-center justify-between mt-sm">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary">$18</span>
+<button class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary flex items-center justify-center shadow-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Color Palette -->
+<div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.12)] p-lg flex flex-col gap-md">
+<h3 class="font-label-caps text-label-caps text-outline mb-sm uppercase tracking-wider">Core Palette</h3>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-primary shadow-sm border border-outline-variant/10"></div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Primary</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Deep Indigo</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-secondary-container shadow-sm border border-outline-variant/10"></div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Secondary</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Saffron</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest shadow-sm border border-outline-variant/10"></div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Surface High</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Gray Accent</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-background shadow-sm border border-outline-variant/10"></div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface">Background</p>
+<p class="font-body-md text-body-md text-on-surface-variant">Near White</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Suppressed as per rules for placeholder/component view, but structured here to follow component rules if it were active. Removing to prioritize content canvas as it's a structural view) -->
+</body></html>
