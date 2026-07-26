@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  item_product_list_card.xml
+  Matches the Stitch "Product List" design exactly:
+  - White rounded-20 card with ambient shadow
+  - 96×96 rounded-xl thumbnail on the left
+  - Right side: product name (bold/primary), description (body/muted),
+    price (bold/primary) + orange "ADD TO CART" pill button
+-->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_product_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/stitch_surface_container_lowest"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <!-- ── Left: 96×96 thumbnail, rounded-12 ── -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/list_product_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginEnd="16dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/home_product_image_desc"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Medium"
+            tools:src="@tools:sample/avatars" />
+
+        <!-- ── Right: info column ── -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingVertical="4dp">
+
+            <!-- Product name -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/list_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/stitch_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="Acoustic Serenity Pro" />
+
+            <!-- Description -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/list_product_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/stitch_on_surface_variant"
+                android:textSize="13sp"
+                android:lineSpacingMultiplier="1.3"
+                tools:text="Immerse yourself in pristine sound. These high-fidelity headphones offer industry-leading noise cancellation." />
+
+            <!-- Price + ADD TO CART row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <!-- Price -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/list_product_price"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/stitch_primary"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    tools:text="$349.00" />
+
+                <!-- ADD TO CART pill button -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/list_btn_add_to_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_add_to_cart_pill"
+                    android:clickable="true"
+                    android:contentDescription="@string/home_add_to_cart"
+                    android:focusable="true"
+                    android:letterSpacing="0.08"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:text="ADD TO CART"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

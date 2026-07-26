@@ -48,6 +48,7 @@ class HomeFragment : Fragment() {
         val root = binding?.root
 
         setupCategoryChips(homeViewModel)
+        setupSubcategoryChips(homeViewModel)
         setupProductsGrid(homeViewModel)
         setupHeroBanner()
 
@@ -59,7 +60,7 @@ class HomeFragment : Fragment() {
      */
     private fun setupCategoryChips(viewModel: HomeViewModel) {
         val chipAdapter = CategoryChipAdapter { chipName ->
-            Toast.makeText(context, chipName, Toast.LENGTH_SHORT).show()
+            viewModel.filterByCategory(chipName)
         }
         binding?.categoryChipsRecyclerview?.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -79,6 +80,55 @@ class HomeFragment : Fragment() {
 
         viewModel.categoryChips.observe(viewLifecycleOwner) { chips ->
             chipAdapter.submitList(chips)
+        }
+    }
+
+    /**
+     * Set up the subcategory chips RecyclerView below the category chips.
+     * Visible only when a specific category is selected; hidden for "All".
+     */
+    private fun setupSubcategoryChips(viewModel: HomeViewModel) {
+        // Navigate to Product List when a subcategory card is tapped
+        val navigateToList = { subcategoryName: String ->
+            val args = android.os.Bundle().apply {
+                putString("filter_subcategory", subcategoryName)
+            }
+            findNavController().navigate(R.id.action_home_to_product_list, args)
+        }
+
+        val cardAdapter = SubcategoryCardAdapter(onCardClick = navigateToList)
+        binding?.subcategoryCardsRecyclerview?.apply {
+            layoutManager = androidx.recyclerview.widget.GridLayoutManager(context, 3)
+            adapter = cardAdapter
+            setHasFixedSize(false)
+            isNestedScrollingEnabled = false
+        }
+
+        viewModel.selectedCategoryName.observe(viewLifecycleOwner) { name ->
+            binding?.subcategoryLabel?.text = when {
+                name == null  -> ""
+                name == "All" -> "All Categories"
+                else          -> name
+            }
+        }
+
+        viewModel.subcategories.observe(viewLifecycleOwner) { subs ->
+            cardAdapter.submitList(subs)
+            val section = binding?.subcategorySection
+            if (subs.isNullOrEmpty()) {
+                section?.animate()?.alpha(0f)?.setDuration(180)?.withEndAction {
+                    section.visibility = View.GONE
+                }?.start()
+            } else {
+                section?.alpha = 0f
+                section?.visibility = View.VISIBLE
+                section?.animate()?.alpha(1f)?.setDuration(220)?.start()
+            }
+        }
+
+        // "View All" in subcategory header → Product List (no filter)
+        binding?.subcategoryViewAll?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_product_list)
         }
     }
 
@@ -141,11 +191,14 @@ class HomeFragment : Fragment() {
     }
 
     /**
-     * Hero banner click handler.
+     * Hero banner + "View All" click handlers.
      */
     private fun setupHeroBanner() {
         binding?.btnShopNow?.setOnClickListener {
-            Toast.makeText(context, "Shop Now!", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_home_to_product_list)
+        }
+        binding?.btnViewAll?.setOnClickListener {
+            findNavController().navigate(R.id.action_home_to_product_list)
         }
     }
 
@@ -195,6 +248,145 @@ class HomeFragment : Fragment() {
                 notifyItemChanged(selectedPosition)
                 onChipClick(chipName)
             }
+        }
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // Subcategory Card Adapter
+    // ═══════════════════════════════════════════════════════════════
+
+    class SubcategoryCardAdapter(
+        private val onCardClick: (String) -> Unit = {}
+    ) : ListAdapter<String, SubcategoryCardAdapter.CardViewHolder>(
+        object : DiffUtil.ItemCallback<String>() {
+            override fun areItemsTheSame(oldItem: String, newItem: String) = oldItem == newItem
+            override fun areContentsTheSame(oldItem: String, newItem: String) = oldItem == newItem
+        }
+    ) {
+        /**
+         * Bundles the emoji icon and the MD3-tonal header colour for a subcategory card.
+         * @param emoji  Unicode emoji that best represents the subcategory
+         * @param headerColor  ARGB int used as the full-bleed card-header background
+         */
+        private data class SubcategoryInfo(val emoji: String, val headerColor: Int)
+
+        companion object {
+            /** Returns [SubcategoryInfo] for a given subcategory name using keyword matching. */
+            private fun infoFor(name: String): SubcategoryInfo = when {
+                // ── Food & Grocery ──────────────────────────────────
+                name.contains("kitchen", true) || name.contains("cook", true) ->
+                    SubcategoryInfo("🍳", 0xFFFF8A65.toInt())   // deep orange tonal
+                name.contains("breakfast", true) ->
+                    SubcategoryInfo("🥞", 0xFFFFCC02.toInt())   // amber
+                name.contains("snack", true) || name.contains("chips", true) ->
+                    SubcategoryInfo("\uD83C\uDF5F", 0xFFFF7043.toInt()) // red-orange
+                name.contains("bakery", true) || name.contains("bread", true) ->
+                    SubcategoryInfo("🍞", 0xFFBCAAA4.toInt())   // warm brown
+                name.contains("drink", true) || name.contains("beverage", true) || name.contains("juice", true) ->
+                    SubcategoryInfo("🥤", 0xFF4FC3F7.toInt())   // light blue
+                name.contains("dairy", true) || name.contains("milk", true) ->
+                    SubcategoryInfo("🥛", 0xFFB3E5FC.toInt())   // pale blue
+                name.contains("fruit", true) ->
+                    SubcategoryInfo("🍎", 0xFFEF9A9A.toInt())   // soft red
+                name.contains("vegetable", true) || name.contains("veggie", true) ->
+                    SubcategoryInfo("🥦", 0xFFA5D6A7.toInt())   // soft green
+                name.contains("rice", true) || name.contains("grain", true) ->
+                    SubcategoryInfo("🌾", 0xFFFFE082.toInt())   // warm yellow
+                name.contains("meat", true) || name.contains("chicken", true) || name.contains("fish", true) ->
+                    SubcategoryInfo("🍗", 0xFFFFAB91.toInt())   // salmon
+                name.contains("spice", true) || name.contains("masala", true) ->
+                    SubcategoryInfo("🌶️", 0xFFEF5350.toInt())   // chilli red
+                name.contains("sweet", true) || name.contains("dessert", true) || name.contains("cake", true) ->
+                    SubcategoryInfo("🍰", 0xFFF48FB1.toInt())   // pink
+                name.contains("oil", true) || name.contains("ghee", true) ->
+                    SubcategoryInfo("🫙", 0xFFFFD54F.toInt())   // golden
+                name.contains("noodle", true) || name.contains("pasta", true) ->
+                    SubcategoryInfo("🍜", 0xFFFFF176.toInt())   // light yellow
+                name.contains("tea", true) || name.contains("coffee", true) ->
+                    SubcategoryInfo("☕", 0xFFA1887F.toInt())   // coffee brown
+
+                // ── Home Décor ───────────────────────────────────────
+                name.contains("clock", true) ->
+                    SubcategoryInfo("🕒", 0xFF90CAF9.toInt())   // steel blue
+                name.contains("paint", true) || name.contains("art", true) ->
+                    SubcategoryInfo("🖼️", 0xFFCE93D8.toInt())   // lavender
+                name.contains("wall", true) || name.contains("decor", true) ->
+                    SubcategoryInfo("🏮", 0xFFEF9A9A.toInt())   // warm red
+                name.contains("lamp", true) || name.contains("light", true) ->
+                    SubcategoryInfo("💡", 0xFFFFEE58.toInt())   // yellow
+                name.contains("curtain", true) || name.contains("blind", true) ->
+                    SubcategoryInfo("🪟", 0xFF80CBC4.toInt())   // teal
+                name.contains("cushion", true) || name.contains("pillow", true) ->
+                    SubcategoryInfo("🛋️", 0xFFB39DDB.toInt())   // soft purple
+                name.contains("rug", true) || name.contains("carpet", true) ->
+                    SubcategoryInfo("🎨", 0xFFFFAB91.toInt())   // peach
+
+                // ── Fashion & Lifestyle ──────────────────────────────
+                name.contains("saree", true) ->
+                    SubcategoryInfo("🥻", 0xFFE91E63.toInt())   // hot pink
+                name.contains("wear", true) || name.contains("cloth", true) ->
+                    SubcategoryInfo("👗", 0xFFF06292.toInt())   // pink
+                name.contains("men", true) ->
+                    SubcategoryInfo("👔", 0xFF42A5F5.toInt())   // blue
+                name.contains("kids", true) || name.contains("children", true) ->
+                    SubcategoryInfo("🧸", 0xFFFFB74D.toInt())   // orange
+                name.contains("shoe", true) || name.contains("footwear", true) ->
+                    SubcategoryInfo("👟", 0xFF78909C.toInt())   // blue-grey
+                name.contains("bag", true) || name.contains("purse", true) ->
+                    SubcategoryInfo("👜", 0xFF26A69A.toInt())   // teal
+                name.contains("jewel", true) || name.contains("accessory", true) ->
+                    SubcategoryInfo("💎", 0xFF7E57C2.toInt())   // deep purple
+                name.contains("beauty", true) || name.contains("makeup", true) ->
+                    SubcategoryInfo("💄", 0xFFEC407A.toInt())   // rose
+                name.contains("skin", true) || name.contains("care", true) ->
+                    SubcategoryInfo("🧴", 0xFFA5D6A7.toInt())   // mint green
+                name.contains("hair", true) ->
+                    SubcategoryInfo("💇", 0xFFFFCC02.toInt())   // amber
+                name.contains("perfume", true) || name.contains("fragrance", true) ->
+                    SubcategoryInfo("🌸", 0xFFF48FB1.toInt())   // blush pink
+
+                // ── Electronics ─────────────────────────────────────
+                name.contains("phone", true) || name.contains("mobile", true) ->
+                    SubcategoryInfo("📱", 0xFF42A5F5.toInt())   // blue
+                name.contains("laptop", true) || name.contains("computer", true) ->
+                    SubcategoryInfo("💻", 0xFF78909C.toInt())   // slate
+                name.contains("tv", true) || name.contains("television", true) ->
+                    SubcategoryInfo("📺", 0xFF5C6BC0.toInt())   // indigo
+                name.contains("audio", true) || name.contains("headphone", true) ->
+                    SubcategoryInfo("🎧", 0xFF7E57C2.toInt())   // violet
+                name.contains("camera", true) ->
+                    SubcategoryInfo("📷", 0xFF8D6E63.toInt())   // brown
+                name.contains("tablet", true) ->
+                    SubcategoryInfo("📟", 0xFF4DB6AC.toInt())   // teal
+
+                // ── Default ──────────────────────────────────────────
+                else ->
+                    SubcategoryInfo("🛍️", 0xFF9E9E9E.toInt())   // neutral grey
+            }
+        }
+
+        class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+            val cardHeaderBg: View = itemView.findViewById(R.id.card_header_bg)
+            val emoji: MaterialTextView = itemView.findViewById(R.id.subcategory_emoji)
+            val name: MaterialTextView = itemView.findViewById(R.id.subcategory_name)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_subcategory_card, parent, false)
+            return CardViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
+            val subcategory = getItem(position)
+            val info = infoFor(subcategory)
+
+            holder.name.text = subcategory
+            holder.emoji.text = info.emoji
+            holder.cardHeaderBg.setBackgroundColor(info.headerColor)
+
+            // Tap → navigate to Product List filtered by this subcategory
+            holder.itemView.setOnClickListener { onCardClick(subcategory) }
         }
     }
 

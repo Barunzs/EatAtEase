@@ -8,12 +8,19 @@
     <fragment
         android:id="@+id/nav_transform"
         android:name="com.shop.eatatease.ui.home.HomeFragment"
-        android:label="@string/menu_transform"
         tools:layout="@layout/fragment_home">
 
         <action
             android:id="@+id/action_home_to_product_detail"
             app:destination="@id/nav_product_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_home_to_product_list"
+            app:destination="@id/nav_product_list"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -96,5 +103,21 @@
         android:name="com.shop.eatatease.ui.checkout.CheckoutFragment"
         android:label="Checkout"
         tools:layout="@layout/fragment_checkout" />
+
+    <!-- Product List -->
+    <fragment
+        android:id="@+id/nav_product_list"
+        android:name="com.shop.eatatease.ui.productlist.ProductListFragment"
+        android:label="Product List"
+        tools:layout="@layout/fragment_product_list">
+
+        <action
+            android:id="@+id/action_product_list_to_product_detail"
+            app:destination="@id/nav_product_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 
 </navigation>

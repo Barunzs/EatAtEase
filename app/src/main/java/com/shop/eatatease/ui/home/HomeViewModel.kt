@@ -38,6 +38,14 @@ class HomeViewModel : ViewModel() {
     private val _sectionTexts = MutableLiveData<List<String>>()
     val sectionTexts: LiveData<List<String>> = _sectionTexts
 
+    // Currently selected category name (null = "All")
+    private val _selectedCategoryName = MutableLiveData<String?>(null)
+    val selectedCategoryName: LiveData<String?> = _selectedCategoryName
+
+    // Subcategories for the selected category
+    private val _subcategories = MutableLiveData<List<String>>(emptyList())
+    val subcategories: LiveData<List<String>> = _subcategories
+
     init {
         fetchCategories()
         loadFeaturedProducts()
@@ -69,6 +77,25 @@ class HomeViewModel : ViewModel() {
                 // Fallback category chips
                 _categoryChips.value = listOf("All", "Electronics", "Fashion", "Home", "Beauty")
             }
+    }
+
+    /**
+     * Called when a category chip is tapped.
+     * - "All" → merge all subcategories from every category into one flat list.
+     * - Specific category → show only that category's subcategories.
+     */
+    fun filterByCategory(categoryName: String) {
+        _selectedCategoryName.value = categoryName
+        if (categoryName == "All") {
+            // Flatten all subcategories from every category into one list
+            val allSubs = _categories.value
+                ?.flatMap { it.subcategories }
+                ?: emptyList()
+            _subcategories.value = allSubs
+        } else {
+            val match = _categories.value?.find { it.name == categoryName }
+            _subcategories.value = match?.subcategories ?: emptyList()
+        }
     }
 
     /**
