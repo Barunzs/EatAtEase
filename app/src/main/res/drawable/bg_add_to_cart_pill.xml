@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bg_add_to_cart_pill.xml — orange pill for "ADD TO CART" button matching Stitch secondary-container #FE7A2B -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/stitch_secondary_container" />
+    <corners android:radius="999dp" />
+</shape>
