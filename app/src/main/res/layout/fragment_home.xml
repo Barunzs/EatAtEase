@@ -19,6 +19,7 @@
         <!-- ═══════════════════════════════════════════ -->
         <!-- Search Bar                                  -->
         <!-- ═══════════════════════════════════════════ -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -58,29 +59,9 @@
                 android:contentDescription="@string/home_cart"
                 android:src="@drawable/ic_shopping_cart"
                 app:tint="@color/stitch_primary" />
+
         </LinearLayout>
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- Category Chips Horizontal Scroll            -->
-        <!-- ═══════════════════════════════════════════ -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/category_chips_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:clipToPadding="false"
-            android:orientation="horizontal"
-            android:overScrollMode="never"
-            android:paddingHorizontal="16dp"
-            android:scrollbars="none"
-            app:layoutManager="LinearLayoutManager"
-            tools:itemCount="5"
-            tools:listitem="@layout/item_category_chip" />
-
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- Hero Banner (Summer Sale)                   -->
-        <!-- ═══════════════════════════════════════════ -->
         <FrameLayout
             android:id="@+id/hero_banner"
             android:layout_width="match_parent"
@@ -158,6 +139,79 @@
         </FrameLayout>
 
         <!-- ═══════════════════════════════════════════ -->
+        <!-- Kitchens Header  (above categories)        -->
+        <!-- ═══════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="18dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/featured_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/home_featured_products"
+                android:textColor="@color/stitch_on_surface"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btn_view_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:letterSpacing="0.01"
+                android:text="@string/home_view_all"
+                android:textColor="@color/stitch_primary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- Products Horizontal Scroll                  -->
+        <!-- ═══════════════════════════════════════════ -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/products_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginTop="12dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            android:paddingHorizontal="12dp"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_product_card" />
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- Category Chips Horizontal Scroll            -->
+        <!-- ═══════════════════════════════════════════ -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_chips_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            android:paddingHorizontal="16dp"
+            android:scrollbars="none"
+            app:layoutManager="LinearLayoutManager"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_category_chip" />
+
+        <!-- ═══════════════════════════════════════════ -->
+        <!-- Hero Banner (Summer Sale)                   -->
+        <!-- ═══════════════════════════════════════════ -->
+
+        <!-- ═══════════════════════════════════════════ -->
         <!-- Subcategory Section (shown on category tap) -->
         <!-- ═══════════════════════════════════════════ -->
         <LinearLayout
@@ -218,57 +272,6 @@
 
         </LinearLayout>
 
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- Featured Products Header                    -->
-        <!-- ═══════════════════════════════════════════ -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="18dp">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/featured_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/home_featured_products"
-                android:textColor="@color/stitch_on_surface"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/btn_view_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="true"
-                android:letterSpacing="0.01"
-                android:text="@string/home_view_all"
-                android:textColor="@color/stitch_primary"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- Products Grid (2 columns via GridLayoutManager) -->
-        <!-- ═══════════════════════════════════════════ -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/products_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:clipToPadding="false"
-            android:nestedScrollingEnabled="false"
-            android:overScrollMode="never"
-            android:paddingHorizontal="12dp"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:spanCount="2"
-            tools:itemCount="4"
-            tools:listitem="@layout/item_product_card" />
-
     </LinearLayout>
+
 </androidx.core.widget.NestedScrollView>

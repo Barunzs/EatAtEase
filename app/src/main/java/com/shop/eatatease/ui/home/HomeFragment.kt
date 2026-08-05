@@ -133,10 +133,16 @@ class HomeFragment : Fragment() {
     }
 
     /**
-     * Set up the 2-column product grid RecyclerView.
+     * Set up the horizontal-scrolling product strip.
+     * First card is 80% of screen width; the next card peeks 20%.
      */
     private fun setupProductsGrid(viewModel: HomeViewModel) {
+        val screenWidth  = resources.displayMetrics.widthPixels
+        val itemWidth    = (screenWidth * 0.80f).toInt()   // 80% visible
+        val peekPadding  = (screenWidth * 0.12f).toInt()   // right peek gap
+
         val productAdapter = ProductAdapter(
+            itemWidthPx = itemWidth,
             onAddClick = { product ->
                 com.shop.eatatease.data.CartManager.addProduct(product)
                 Toast.makeText(
@@ -149,11 +155,14 @@ class HomeFragment : Fragment() {
                 navigateToProductDetail(product)
             }
         )
+
         binding?.productsRecyclerview?.apply {
-            layoutManager = GridLayoutManager(context, 2)
-            adapter = productAdapter
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter        = productAdapter
             setHasFixedSize(false)
             isNestedScrollingEnabled = false
+            clipToPadding  = false          // let next card show through padding
+            setPadding(paddingLeft, paddingTop, peekPadding, paddingBottom)
             addItemDecoration(object : RecyclerView.ItemDecoration() {
                 override fun getItemOffsets(
                     outRect: Rect,
@@ -161,7 +170,7 @@ class HomeFragment : Fragment() {
                     parent: RecyclerView,
                     state: RecyclerView.State
                 ) {
-                    outRect.set(6, 6, 6, 6)
+                    outRect.right = 14   // gap between cards
                 }
             })
         }
@@ -395,6 +404,7 @@ class HomeFragment : Fragment() {
     // ═══════════════════════════════════════════════════════════════
 
     class ProductAdapter(
+        private val itemWidthPx: Int = ViewGroup.LayoutParams.MATCH_PARENT,
         private val onAddClick: (Product) -> Unit,
         private val onItemClick: (Product) -> Unit
     ) : ListAdapter<Product, ProductAdapter.ProductViewHolder>(
@@ -417,6 +427,10 @@ class HomeFragment : Fragment() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
             val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_product_card, parent, false)
+            // Apply 80% width so the next card peeks at 20%
+            if (itemWidthPx != ViewGroup.LayoutParams.MATCH_PARENT) {
+                view.layoutParams = view.layoutParams.also { it.width = itemWidthPx }
+            }
             return ProductViewHolder(view)
         }
 
